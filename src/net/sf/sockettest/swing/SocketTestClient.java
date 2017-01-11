@@ -1,20 +1,45 @@
 package net.sf.sockettest.swing;
 
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
-import javax.swing.event.*;
-import javax.swing.border.*;
-
+import java.awt.BorderLayout;
+import java.awt.Container;
+import java.awt.Cursor;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.net.Socket;
 import java.security.SecureRandom;
 
-import java.net.*;
-import java.io.*;
+import javax.net.ssl.KeyManager;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSocketFactory;
+import javax.net.ssl.TrustManager;
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.border.Border;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EtchedBorder;
 
-import javax.net.*;
-import javax.net.ssl.*;
-
-import net.sf.sockettest.*;
+import net.sf.sockettest.MyTrustManager;
+import net.sf.sockettest.SocketClient;
+import net.sf.sockettest.Util;
 /**
  *
  * @author Akshathkumar Shetty
@@ -187,7 +212,7 @@ public class SocketTestClient extends JPanel {
         gbc.gridx = 1;
         gbc.weightx = 1.0;
         gbc.fill = GridBagConstraints.HORIZONTAL;
-        sendField.setEditable(false);
+        sendField.setEditable(true);
         sendPanel.add(sendField, gbc);
         gbc.gridx = 2;
         gbc.weightx = 0.0;
